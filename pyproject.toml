@@ -1,0 +1,44 @@
+[tool.poetry]
+name = "fastapi-5"
+version = "0.1.0"
+description = ""
+authors = ["seungwon0113 <dhkd0113@naver.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.115.4"
+uvicorn = "^0.32.0"
+pydantic = "^2.9.2"
+pydantic-settings = "^2.6.0"
+tortoise-orm = {extras = ["asyncmy"], version = "^0.21.7"}
+aerich = "^0.7.2"
+cryptography = "^43.0.3"
+httpx = "^0.27.2"
+coverage = "^7.6.4"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.10.0"
+isort = "^5.13.2"
+mypy = "^1.13.0"
+coverage = "^7.6.4"
+pytest = "^8.3.3"
+pytest-asyncio = "^0.24.0"
+
+
+
+[tool.aerich]
+tortoise_orm = "app.configs.database_settings.TORTOISE_ORM"
+location = "./migrations"
+src_folder = "./."
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.mypy]
+python_version = 3.12
+strict = true
+plugins = [
+    "pydantic.mypy"
+]
