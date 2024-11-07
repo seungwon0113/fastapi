@@ -6,7 +6,7 @@ from tortoise.models import Model
 from app.models.base_model import BaseModel
 
 
-class Article(BaseModel, Model):
+class Article(BaseModel, Model):  # 다중 상속
     author = fields.CharField(max_length=255)
     title = fields.CharField(max_length=255)
     body = fields.TextField()

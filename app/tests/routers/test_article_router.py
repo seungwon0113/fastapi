@@ -56,7 +56,7 @@ class TestArticleRouter(TestCase):
         self.assertEqual(response_body["title"], "title")
         self.assertEqual(response_body["body"], "body")
 
-        # 보장되지 않는 순서에 의존하는 경우
+        # 보장되지 않는 순서에 의존하는 경우 -> 비지니스 로직에 의해서 확실하게 명시 되지 않음 경우
         # 간헐적으로 터지는 테스트가 만들어진다.
         # Ci 의 결과에 의해서 배포 여부가 결정 -> CI 가 간헐적으로 실패 -> 배포자가 CI 를 못 믿게 된다.
         self.assertEqual(len(response_body["comments"]), 2)
